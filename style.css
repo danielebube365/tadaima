@@ -187,9 +187,18 @@ ul { list-style: none; }
 /* ============================================================
    CRAFT — text + reel video + photo
    ============================================================ */
-.craft__grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(2rem,6vw,5rem); align-items: center; }
-.craft__video { position: relative; border-radius: 6px; overflow: hidden; aspect-ratio: 4/5; background: var(--paper-2); box-shadow: 0 40px 80px -30px rgba(0,0,0,.5); }
-.craft__video video { width: 100%; height: 100%; object-fit: cover; }
+.craft__grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: clamp(2rem,6vw,5rem); align-items: start; }
+.craft__media { position: sticky; top: 13vh; border-radius: 6px; overflow: hidden; aspect-ratio: 3/4; background: var(--pine); box-shadow: 0 44px 90px -34px rgba(0,0,0,.5); }
+.craft__media video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.craft__media::after { content: ""; position: absolute; inset: 0; box-shadow: inset 0 0 0 1px rgba(255,255,255,.06); pointer-events: none; }
+.scrub-hint { position: absolute; left: 50%; bottom: 1.1rem; transform: translateX(-50%); z-index: 2; display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.56rem; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--cream); background: rgba(20,24,14,0.46); padding: 0.45rem 0.9rem; border-radius: 999px; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); transition: opacity .5s var(--e); }
+.scrub-hint svg { animation: nudge 1.8s var(--e) infinite; }
+@keyframes nudge { 0%,100% { transform: translateY(0); } 50% { transform: translateY(3px); } }
+.is-scrubbing .scrub-hint { opacity: 0; }
+/* the dedicated 'by hand' spread becomes its own section */
+.byhand__head { text-align: center; margin-bottom: clamp(2rem,5vh,3.5rem); }
+.menu__fig--video { aspect-ratio: 4/5; border-radius: 4px; overflow: hidden; }
+.menu__fig--video video { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 /* ============================================================
    MENU — editorial list, minimal, one large photo
@@ -272,7 +281,7 @@ ul { list-style: none; }
    ============================================================ */
 @media (max-width: 980px) {
   .split, .split--wide-img, .craft__grid, .menu__grid { grid-template-columns: 1fr; gap: 2.4rem; }
-  .craft__video { aspect-ratio: 16/10; max-width: 560px; }
+  .craft__media { position: static; aspect-ratio: 4/5; max-width: 460px; }
   .menu__fig { max-width: 560px; }
   .visit__row { grid-template-columns: 1fr; gap: 0.5rem; text-align: left; padding: 1.6rem 0; }
   .visit__links { justify-content: flex-start; margin-top: 0.4rem; }

@@ -46,4 +46,39 @@
     }, { rootMargin: "0px 0px -12% 0px", threshold: 0.1 });
     reveals.forEach(function (el) { io.observe(el); });
   }
+
+  /* scroll-scrubbed video (the shake clip): scroll down = forward, up = reverse */
+  var scrub = $("video[data-scrub]");
+  if (scrub) {
+    var section = scrub.closest(".craft") || scrub.parentElement;
+    var canScrub = !reduce && window.matchMedia("(min-width: 981px)").matches && !("ontouchstart" in window);
+    if (!canScrub) {
+      scrub.setAttribute("loop", ""); scrub.muted = true;
+      var pf = scrub.play(); if (pf && pf.catch) pf.catch(function () {});
+    } else {
+      scrub.muted = true; scrub.pause();
+      var dur = 0, primed = false, ticking = false;
+      var setDur = function () { dur = scrub.duration || 2; };
+      if (scrub.readyState >= 1) setDur(); else scrub.addEventListener("loadedmetadata", setDur);
+      var prime = function () { if (primed) return; primed = true; var p = scrub.play(); if (p && p.then) p.then(function () { scrub.pause(); }).catch(function () {}); };
+      var update = function () {
+        ticking = false;
+        if (!dur) return;
+        var rect = section.getBoundingClientRect(), vh = window.innerHeight;
+        var total = rect.height - vh;
+        var prog = total > 40 ? (-rect.top) / total : (vh - rect.top) / (vh + rect.height);
+        prog = Math.max(0, Math.min(1, prog));
+        try { scrub.currentTime = prog * (dur - 0.04); } catch (e) {}
+        section.classList.toggle("is-scrubbing", prog > 0.02 && prog < 0.98);
+      };
+      var req = function () { if (!ticking) { ticking = true; window.requestAnimationFrame(update); } };
+      window.addEventListener("scroll", req, { passive: true });
+      window.addEventListener("resize", req);
+      if ("IntersectionObserver" in window) {
+        var pio = new IntersectionObserver(function (en) { en.forEach(function (e) { if (e.isIntersecting) { prime(); req(); } }); }, { threshold: 0.02 });
+        pio.observe(scrub);
+      } else { prime(); }
+      scrub.addEventListener("loadeddata", req);
+    }
+  }
 })();

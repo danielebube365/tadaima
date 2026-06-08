@@ -87,26 +87,38 @@
     </div>
   </section>
 
-  <!-- ============ CRAFT (editorial + reel video + spread) ============ -->
-  <section class="sec" id="craft">
+  <!-- ============ CRAFT (editorial + scroll-scrubbed shake video) ============ -->
+  <section class="sec craft" id="craft">
     <div class="wrap craft__grid">
       <div class="craft__copy">
         <span class="kicker reveal" data-rev="up">The Craft</span>
         <h2 class="h2 reveal" data-rev="up" style="transition-delay:.08s">Whisked by hand,<br/><span class="it">built to order.</span></h2>
-        <p class="body reveal" data-rev="up" style="transition-delay:.16s">Every matcha is sifted and whisked to a fine foam, never shaken from a bottle. Sandos are layered to order on pillowy milk bread, strawberry and cream, kiwi and chocolate, crisp katsu. The hojicha is slow-roasted until it turns toasty and amber.</p>
+        <p class="body reveal" data-rev="up" style="transition-delay:.16s">Every matcha is sifted and whisked to a fine foam, then built over ice and finished to order. Sandos are layered on pillowy milk bread, strawberry and cream, kiwi and chocolate, crisp katsu. The hojicha is slow-roasted until it turns toasty and amber.</p>
         <p class="body reveal" data-rev="up" style="transition-delay:.22s">It is a short menu on purpose. We would rather make a few things properly than a great many things in a hurry.</p>
       </div>
-      <figure class="craft__video reveal" data-rev="clip">
-        <video autoplay muted loop playsinline preload="none" poster="assets/sando-reel-poster.jpg" aria-label="A spread of freshly made Tadaima sandos">
-          <source src="assets/sando-reel.mp4" type="video/mp4" />
-          <img src="assets/sando-reel-poster.jpg" alt="An overhead spread of Tadaima sandos in their boxes" />
+      <figure class="craft__media">
+        <video data-scrub muted playsinline preload="auto" poster="assets/shake-poster.jpg" aria-label="An iced matcha held up in front of the Tadaima sign">
+          <source src="assets/shake.mp4" type="video/mp4" />
+          <img src="assets/shake-poster.jpg" alt="A hand holding an iced matcha in front of the Tadaima sign" />
         </video>
+        <span class="scrub-hint" aria-hidden="true">Scroll
+          <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+        </span>
       </figure>
     </div>
+  </section>
 
-    <div class="wrap spread" style="margin-top:clamp(2.5rem,7vh,5.5rem)">
-      <figure class="reveal" data-rev="up"><img src="assets/hand-matcha.jpg" alt="A hand holding a warm matcha latte in a Tadaima cup" loading="lazy" /><figcaption class="figcap">A cup, handed over with both hands.</figcaption></figure>
-      <figure class="spread__tall reveal" data-rev="up" style="transition-delay:.1s"><img src="assets/hand-sando.jpg" alt="A hand holding a layered sando, cut to show the filling" loading="lazy" /><figcaption class="figcap">Layered to order, milk bread and all.</figcaption></figure>
+  <!-- ============ BY HAND (own section: cup + sando spread) ============ -->
+  <section class="sec" style="background:var(--paper-3)">
+    <div class="wrap">
+      <div class="byhand__head">
+        <span class="kicker kicker--center reveal" data-rev="up">By Hand</span>
+        <h2 class="h2 reveal" data-rev="up" style="transition-delay:.08s">Two hands,<br/><span class="it">every time.</span></h2>
+      </div>
+      <div class="spread">
+        <figure class="reveal" data-rev="up"><img src="assets/hand-matcha.jpg" alt="A hand holding a warm matcha latte in a Tadaima cup" loading="lazy" /><figcaption class="figcap">A cup, handed over with both hands.</figcaption></figure>
+        <figure class="spread__tall reveal" data-rev="up" style="transition-delay:.1s"><img src="assets/hand-sando.jpg" alt="A hand holding a layered sando, cut to show the filling" loading="lazy" /><figcaption class="figcap">Layered to order, milk bread and all.</figcaption></figure>
+      </div>
     </div>
   </section>
 
@@ -126,7 +138,12 @@
         <p class="menu__note reveal" data-rev="up" style="transition-delay:.24s"><a href="https://tadaimasf.com/" target="_blank" rel="noopener" class="tlink">See the full menu
           <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a></p>
       </div>
-      <figure class="menu__fig reveal" data-rev="right"><img src="assets/flatlay-square.jpg" alt="A flatlay of a Tadaima sando, matcha, and a paper crane on a wooden table" loading="lazy" /></figure>
+      <figure class="menu__fig menu__fig--video reveal" data-rev="right">
+        <video autoplay muted loop playsinline preload="none" poster="assets/sando-reel-poster.jpg" aria-label="An overhead spread of freshly made Tadaima sandos">
+          <source src="assets/sando-reel.mp4" type="video/mp4" />
+          <img src="assets/sando-reel-poster.jpg" alt="An overhead spread of Tadaima sandos in their boxes" />
+        </video>
+      </figure>
     </div>
   </section>
 
@@ -159,6 +176,8 @@
         <figure class="gframe"><img src="assets/drink-latte.jpg" alt="An iced latte in a Tadaima cup on a wooden table" loading="lazy" /><figcaption class="gframe__cap">Iced latte</figcaption></figure>
         <figure class="gframe"><img src="assets/sign.jpg" alt="The Tadaima A-frame sign with a matcha cup" loading="lazy" /><figcaption class="gframe__cap">Out front</figcaption></figure>
         <figure class="gframe"><img src="assets/flatlay-wide.jpg" alt="A wooden table set with a Tadaima cup, a sando, and a paper crane" loading="lazy" /><figcaption class="gframe__cap">The table</figcaption></figure>
+        <figure class="gframe"><img src="assets/flatlay-square.jpg" alt="A flatlay of a Tadaima sando, matcha, and a paper crane" loading="lazy" /><figcaption class="gframe__cap">A set</figcaption></figure>
+        <figure class="gframe"><img src="assets/drink-matcha.jpg" alt="An iced matcha latte in a Tadaima cup" loading="lazy" /><figcaption class="gframe__cap">Iced matcha</figcaption></figure>
       </div>
     </div>
   </section>
