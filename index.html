@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Tadaima is a Japanese cafe in San Francisco. Stone-whisked matcha, roasted hojicha, and milk-bread sandos. A little taste of home, in three neighborhoods." />
-  <meta property="og:title" content="Tadaima · A taste of home | San Francisco Matcha Cafe" />
-  <meta property="og:description" content="Stone-whisked matcha, roasted hojicha, and milk-bread sandos. Japanese comfort, reimagined." />
+  <meta name="description" content="Tadaima is a Japanese cafe in San Francisco. Hand-whisked matcha, roasted hojicha, and milk-bread sandos, served the way you would be welcomed home. Three neighborhoods." />
+  <meta property="og:title" content="Tadaima · A Japanese Cafe in San Francisco" />
+  <meta property="og:description" content="Hand-whisked matcha, roasted hojicha, and milk-bread sandos. The word you say when you come home." />
   <meta property="og:image" content="assets/hero-poster.jpg" />
-  <title>Tadaima · A Taste of Home | San Francisco Matcha Cafe</title>
-  <link rel="icon" href="assets/cutout-matcha.webp" />
+  <title>Tadaima · A Japanese Cafe in San Francisco</title>
+  <link rel="icon" href="assets/drink-matcha.jpg" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Hanken+Grotesk:wght@400;500;600;700;800&family=Zen+Kaku+Gothic+New:wght@500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400;1,6..72,500&family=Shippori+Mincho:wght@500;600&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -21,25 +21,22 @@
   <div class="grain" aria-hidden="true"></div>
 
   <!-- ============ NAV ============ -->
-  <header class="nav" id="nav">
-    <a href="#top" class="nav__logo">tada<span>ima</span></a>
+  <header class="nav on-dark" id="nav">
+    <a href="#top" class="nav__logo">tadaima</a>
     <nav class="nav__links" aria-label="Primary">
-      <a href="#signature">Signature</a>
+      <a href="#story">Story</a>
+      <a href="#craft">Craft</a>
       <a href="#menu">Menu</a>
       <a href="#visit">Visit</a>
     </nav>
-    <div class="nav__right">
-      <a href="https://tadaimasf.com/" target="_blank" rel="noopener" class="btn btn--matcha" style="min-height:44px;padding:0 1.3rem">Order Online</a>
-      <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="menuOv">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
+    <a href="https://tadaimasf.com/" target="_blank" rel="noopener" class="nav__cta">Order</a>
+    <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="menuOv"><span></span><span></span><span></span></button>
   </header>
 
   <nav class="menu-ov" id="menuOv" aria-label="Mobile">
-    <a href="#signature">Signature</a>
+    <a href="#story">Story</a>
+    <a href="#craft">Craft</a>
     <a href="#menu">Menu</a>
-    <a href="#culture">Culture</a>
     <a href="#visit">Visit</a>
     <a href="https://tadaimasf.com/" target="_blank" rel="noopener">Order</a>
     <span class="menu-ov__kana" aria-hidden="true">ただいま</span>
@@ -47,191 +44,180 @@
 
   <!-- ============ HERO ============ -->
   <section class="hero" id="top">
-    <div class="hero__blob hero__blob--1" aria-hidden="true"></div>
-    <div class="hero__blob hero__blob--2" aria-hidden="true"></div>
-
+    <div class="hero__media">
+      <video autoplay muted loop playsinline preload="metadata" poster="assets/hero-poster.jpg" aria-label="Matcha being whisked and poured at Tadaima">
+        <source src="assets/hero.mp4" type="video/mp4" />
+        <img src="assets/hero-poster.jpg" alt="Matcha being poured into a cup at Tadaima" />
+      </video>
+    </div>
     <div class="hero__inner">
-      <div class="hero__copy">
-        <span class="hero__kana">ただいま</span>
-        <h1 class="hero__title">A taste<br/>of <span class="hl">home.</span></h1>
-        <p class="hero__sub">Japanese comfort, reimagined. Stone-whisked matcha, roasted hojicha, and milk-bread sandos in San Francisco.</p>
-        <div class="hero__cta">
-          <a href="https://tadaimasf.com/" target="_blank" rel="noopener" class="btn btn--matcha btn--lg">Order Online
-            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-          </a>
-          <a href="#menu" class="btn btn--outline btn--lg">See the Menu</a>
-        </div>
-      </div>
-
-      <div class="hero__stage" aria-hidden="true">
-        <div class="hero__cup hero__cup--a" data-parallax="0.06"><img src="assets/cutout-strawberry.webp" alt="" /></div>
-        <div class="hero__cup hero__cup--main" data-parallax="0.10"><img src="assets/cutout-matcha.webp" alt="" /></div>
-        <div class="hero__cup hero__cup--b" data-parallax="0.08"><img src="assets/cutout-latte.webp" alt="" /></div>
-        <div class="hero__badge">
-          <svg viewBox="0 0 120 120">
-            <defs><path id="badgeCircle" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0" /></defs>
-            <text><textPath href="#badgeCircle" startOffset="0">TADAIMA · MATCHA · SAN FRANCISCO · </textPath></text>
-          </svg>
-          <span class="hero__badge-dot"></span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ MARQUEE ============ -->
-  <div class="marquee" aria-hidden="true">
-    <div class="marquee__track">
-      <span>Matcha</span><i></i><span>Hojicha</span><i></i><span>Milk-Bread Sandos</span><i></i><span>Salted Cheese Cream</span><i></i><span>Made Fresh Daily</span><i></i>
-      <span>Matcha</span><i></i><span>Hojicha</span><i></i><span>Milk-Bread Sandos</span><i></i><span>Salted Cheese Cream</span><i></i><span>Made Fresh Daily</span><i></i>
-    </div>
-  </div>
-
-  <!-- ============ SIGNATURE ============ -->
-  <section class="sec sig" id="signature">
-    <div class="wrap sig__grid">
-      <div class="sig__copy">
-        <span class="eyebrow reveal">The Signature</span>
-        <h2 class="sig__statement reveal" data-rev="up" style="transition-delay:.06s">Matcha,<br/><span class="hl">whisked</span> to<br/>order.</h2>
-        <p class="sig__lede reveal" data-rev="up" style="transition-delay:.12s">Stone-whisked matcha and roasted hojicha, crowned with salted cheese cream. Strawberry, kiwi, and katsu sandos on pillowy milk bread. Small menu, made fresh, every single morning.</p>
-        <ul class="sig__tags reveal" data-rev="up" style="transition-delay:.18s">
-          <li>Stone-Whisked Matcha</li>
-          <li>Roasted Hojicha</li>
-          <li>Salted Cheese Cream</li>
-          <li>Fruit Sandos</li>
-          <li>Iced &amp; Hot</li>
-        </ul>
-      </div>
-      <div class="sig__stage" aria-hidden="true">
-        <div class="sig__cup sig__cup--1" data-parallax="0.05"><img src="assets/cutout-coffee.webp" alt="" /></div>
-        <div class="sig__cup sig__cup--2" data-parallax="0.11"><img src="assets/cutout-matcha.webp" alt="" /></div>
-        <div class="sig__cup sig__cup--3" data-parallax="0.07"><img src="assets/cutout-strawberry.webp" alt="" /></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ CULTURE ============ -->
-  <section class="sec culture" id="culture">
-    <div class="wrap culture__grid">
-      <div class="culture__copy">
-        <span class="eyebrow eyebrow--cream reveal">The Culture</span>
-        <h2 class="culture__title reveal" data-rev="up" style="transition-delay:.06s">Food that<br/>feels like <span class="hl hl--cream">home.</span></h2>
-        <p class="culture__p reveal" data-rev="up" style="transition-delay:.12s">Tadaima is built on Japanese home cooking, the simple, comforting things made in a family kitchen. Soft milk bread, slow-roasted tea, matcha whisked by hand. Nothing fussy, just the flavors that feel like being looked after.</p>
-        <p class="culture__p reveal" data-rev="up" style="transition-delay:.18s">We wanted a corner of San Francisco that felt that way the moment you walked in, where the regulars are on a first-name basis and the green cup is a small daily ritual.</p>
-        <div class="culture__meaning reveal" data-rev="up" style="transition-delay:.24s">
-          <span class="kana">ただいま</span>
-          <span><strong style="color:var(--cream)">tadaima</strong> &nbsp;/&nbsp; what you say when you walk through the door. &ldquo;I&rsquo;m home.&rdquo;</span>
-        </div>
-      </div>
-      <div class="culture__media reveal" data-rev="scale">
-        <figure class="cm-a"><img src="assets/aesthetic.jpg" alt="A plant on the windowsill of Tadaima with iced drinks and a view of the street" loading="lazy" /></figure>
-        <figure class="cm-b"><img src="assets/matcha-hand.jpg" alt="A hand holding a warm matcha latte at Tadaima" loading="lazy" /></figure>
-        <figure class="cm-c"><img src="assets/bg-3.jpg" alt="An iced drink on a sunlit windowsill inside the cafe" loading="lazy" /></figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ MENU (rail) ============ -->
-  <section class="sec flavors" id="menu">
-    <div class="wrap">
-      <div class="flavors__head">
-        <div class="sec-head">
-          <span class="eyebrow reveal">Featured Menu</span>
-          <h2 class="sec-title reveal" data-rev="up" style="transition-delay:.06s">A few of<br/>our <span class="ital">favorites.</span></h2>
-        </div>
-        <a href="https://tadaimasf.com/" target="_blank" rel="noopener" class="btn btn--ink reveal" data-rev="right">Full Menu
-          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      <span class="hero__kana reveal" data-rev="up">ただいま</span>
+      <h1 class="hero__title reveal" data-rev="up" style="transition-delay:.12s">Where matcha<br/>feels like <span class="it">home.</span></h1>
+      <p class="hero__sub reveal" data-rev="up" style="transition-delay:.28s">A Japanese cafe in San Francisco. Hand-whisked matcha, roasted hojicha, and milk-bread sandos, made fresh each morning.</p>
+      <div class="hero__cta reveal" data-rev="up" style="transition-delay:.42s">
+        <a href="#menu" class="btn btn--cream">See the Menu
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </a>
+        <a href="https://tadaimasf.com/" target="_blank" rel="noopener" class="btn btn--line" style="color:var(--cream)">Order Online</a>
       </div>
+    </div>
+    <div class="hero__scroll" aria-hidden="true"><span>Scroll</span><i></i></div>
+  </section>
 
-      <div class="rail reveal" data-rev="up">
-        <article class="fcard"><img src="assets/bg-2.jpg" alt="Iced matcha latte" loading="lazy" /><span class="fcard__tag">Matcha</span><h3 class="fcard__name">Iced Matcha</h3></article>
-        <article class="fcard"><img src="assets/latte-duo.jpg" alt="Hojicha and matcha lattes with salted cheese cream" loading="lazy" /><span class="fcard__tag">Cheese Cream</span><h3 class="fcard__name">Hojicha &amp; Matcha</h3></article>
-        <article class="fcard"><img src="assets/sando-strawberry.jpg" alt="Strawberry and cream sando" loading="lazy" /><span class="fcard__tag">Fruit Sando</span><h3 class="fcard__name">Strawberry &amp; Cream</h3></article>
-        <article class="fcard"><img src="assets/sando-kiwi.jpg" alt="Kiwi and chocolate cream sando" loading="lazy" /><span class="fcard__tag">Fruit Sando</span><h3 class="fcard__name">Kiwi &amp; Choco</h3></article>
-        <article class="fcard"><img src="assets/wall-5.jpg" alt="Katsu sando in a Tadaima box" loading="lazy" /><span class="fcard__tag">Savory</span><h3 class="fcard__name">Katsu Sando</h3></article>
-        <article class="fcard"><img src="assets/bg-1.jpg" alt="Strawberry matcha latte" loading="lazy" /><span class="fcard__tag">Matcha</span><h3 class="fcard__name">Strawberry Matcha</h3></article>
-        <article class="fcard"><img src="assets/wall-4.jpg" alt="A seasonal specialty drink" loading="lazy" /><span class="fcard__tag">Seasonal</span><h3 class="fcard__name">Specialty Pour</h3></article>
+  <!-- ============ OPENING (quiet editorial) ============ -->
+  <section class="sec opening" id="story">
+    <div class="wrap">
+      <span class="opening__kana kana reveal" data-rev="up">ただいま</span>
+      <h2 class="h1 opening__title reveal" data-rev="up" style="transition-delay:.1s">We named it after the word you say when you <span class="it">come home.</span></h2>
+      <p class="lede body opening__body reveal" data-rev="up" style="transition-delay:.2s">
+        <em>Tadaima</em> is the small phrase called out at the door, the one that means &ldquo;I&rsquo;m home.&rdquo; It is the feeling we build the whole cafe around: Japanese home cooking, made simply and served with care. Soft milk bread, tea roasted slowly, matcha whisked by hand. Nothing fussy, just the things that make a day feel looked after.
+      </p>
+      <div class="opening__rule reveal" data-rev="up" style="transition-delay:.3s"></div>
+    </div>
+  </section>
+
+  <!-- ============ ATMOSPHERE (bold full-bleed) ============ -->
+  <section class="fullbleed">
+    <div class="fullbleed__media">
+      <img src="assets/window-tray.jpg" alt="Window light falling on a wooden tray of food and an iced drink inside Tadaima" loading="lazy" />
+    </div>
+    <div class="fullbleed__inner">
+      <span class="kicker reveal" data-rev="up">The Room</span>
+      <h2 class="h1 fullbleed__title reveal" data-rev="up" style="transition-delay:.1s">A small room, warm wood, and a long pause in the day.</h2>
+    </div>
+  </section>
+
+  <!-- ============ CRAFT (editorial + reel video + spread) ============ -->
+  <section class="sec" id="craft">
+    <div class="wrap craft__grid">
+      <div class="craft__copy">
+        <span class="kicker reveal" data-rev="up">The Craft</span>
+        <h2 class="h2 reveal" data-rev="up" style="transition-delay:.08s">Whisked by hand,<br/><span class="it">built to order.</span></h2>
+        <p class="body reveal" data-rev="up" style="transition-delay:.16s">Every matcha is sifted and whisked to a fine foam, never shaken from a bottle. Sandos are layered to order on pillowy milk bread, strawberry and cream, kiwi and chocolate, crisp katsu. The hojicha is slow-roasted until it turns toasty and amber.</p>
+        <p class="body reveal" data-rev="up" style="transition-delay:.22s">It is a short menu on purpose. We would rather make a few things properly than a great many things in a hurry.</p>
+      </div>
+      <figure class="craft__video reveal" data-rev="clip">
+        <video autoplay muted loop playsinline preload="none" poster="assets/sando-reel-poster.jpg" aria-label="A spread of freshly made Tadaima sandos">
+          <source src="assets/sando-reel.mp4" type="video/mp4" />
+          <img src="assets/sando-reel-poster.jpg" alt="An overhead spread of Tadaima sandos in their boxes" />
+        </video>
+      </figure>
+    </div>
+
+    <div class="wrap spread" style="margin-top:clamp(2.5rem,7vh,5.5rem)">
+      <figure class="reveal" data-rev="up"><img src="assets/hand-matcha.jpg" alt="A hand holding a warm matcha latte in a Tadaima cup" loading="lazy" /><figcaption class="figcap">A cup, handed over with both hands.</figcaption></figure>
+      <figure class="spread__tall reveal" data-rev="up" style="transition-delay:.1s"><img src="assets/hand-sando.jpg" alt="A hand holding a layered sando, cut to show the filling" loading="lazy" /><figcaption class="figcap">Layered to order, milk bread and all.</figcaption></figure>
+    </div>
+  </section>
+
+  <!-- ============ MENU (quiet editorial list) ============ -->
+  <section class="sec menu" id="menu" style="background:var(--paper-3)">
+    <div class="wrap menu__grid">
+      <div class="menu__copy">
+        <span class="kicker reveal" data-rev="up">The Menu</span>
+        <h2 class="h2 reveal" data-rev="up" style="transition-delay:.08s">A few things,<br/>done <span class="it">properly.</span></h2>
+        <div class="menu__list reveal" data-rev="up" style="transition-delay:.16s">
+          <div class="menu__row"><div class="menu__name">Hand-Whisked Matcha<span>Hot or over ice, with milk</span></div><span class="menu__tag">Matcha</span></div>
+          <div class="menu__row"><div class="menu__name">Roasted Hojicha<span>Toasty, amber, gently sweet</span></div><span class="menu__tag">Tea</span></div>
+          <div class="menu__row"><div class="menu__name">Salted Cheese Cream<span>Crowning the matcha &amp; hojicha lattes</span></div><span class="menu__tag">Signature</span></div>
+          <div class="menu__row"><div class="menu__name">Strawberry &amp; Cream Sando<span>On pillowy milk bread</span></div><span class="menu__tag">Sando</span></div>
+          <div class="menu__row"><div class="menu__name">Katsu Sando<span>Crisp cutlet, cabbage, tonkatsu</span></div><span class="menu__tag">Sando</span></div>
+        </div>
+        <p class="menu__note reveal" data-rev="up" style="transition-delay:.24s"><a href="https://tadaimasf.com/" target="_blank" rel="noopener" class="tlink">See the full menu
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a></p>
+      </div>
+      <figure class="menu__fig reveal" data-rev="right"><img src="assets/flatlay-square.jpg" alt="A flatlay of a Tadaima sando, matcha, and a paper crane on a wooden table" loading="lazy" /></figure>
+    </div>
+  </section>
+
+  <!-- ============ HOSPITALITY (bold full-bleed pull-quote) ============ -->
+  <section class="fullbleed">
+    <div class="fullbleed__media">
+      <img src="assets/hand-latte.jpg" alt="A hand holding an iced latte by a sunlit window at Tadaima" loading="lazy" />
+    </div>
+    <div class="fullbleed__inner">
+      <span class="kicker reveal" data-rev="up">Hospitality</span>
+      <h2 class="h1 fullbleed__title reveal" data-rev="up" style="transition-delay:.1s">&ldquo;Come as you are, stay as long as you like.&rdquo;</h2>
+    </div>
+  </section>
+
+  <!-- ============ GALLERY (large photography rail) ============ -->
+  <section class="sec gallery">
+    <div class="wrap">
+      <div class="gallery__head">
+        <div>
+          <span class="kicker reveal" data-rev="up">In the Cafe</span>
+          <h2 class="h2 reveal" data-rev="up" style="transition-delay:.08s">A look <span class="it">around.</span></h2>
+        </div>
+        <a href="https://instagram.com/tadaima.sf" target="_blank" rel="noopener" class="tlink reveal" data-rev="right">@tadaima.sf
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+      </div>
+      <div class="grail reveal" data-rev="up">
+        <figure class="gframe"><img src="assets/drink-strawberry.jpg" alt="A strawberry matcha latte topped with cream" loading="lazy" /><figcaption class="gframe__cap">Strawberry matcha</figcaption></figure>
+        <figure class="gframe"><img src="assets/box-sando.jpg" alt="A hand holding a Tadaima sando in its branded box" loading="lazy" /><figcaption class="gframe__cap">To go</figcaption></figure>
+        <figure class="gframe"><img src="assets/dessert.jpg" alt="A Japanese dessert in a cup" loading="lazy" /><figcaption class="gframe__cap">Something sweet</figcaption></figure>
+        <figure class="gframe"><img src="assets/drink-latte.jpg" alt="An iced latte in a Tadaima cup on a wooden table" loading="lazy" /><figcaption class="gframe__cap">Iced latte</figcaption></figure>
+        <figure class="gframe"><img src="assets/sign.jpg" alt="The Tadaima A-frame sign with a matcha cup" loading="lazy" /><figcaption class="gframe__cap">Out front</figcaption></figure>
+        <figure class="gframe"><img src="assets/flatlay-wide.jpg" alt="A wooden table set with a Tadaima cup, a sando, and a paper crane" loading="lazy" /><figcaption class="gframe__cap">The table</figcaption></figure>
       </div>
     </div>
   </section>
 
-  <!-- ============ WALL ============ -->
-  <section class="wall" aria-label="From the Tadaima Instagram">
-    <div class="wall__head">
-      <h2 class="wall__title reveal" data-rev="up">@tadaima<span>.sf</span></h2>
-      <p class="wall__sub reveal" data-rev="up" style="transition-delay:.08s">Straight from the counter</p>
-    </div>
-    <div class="wall__stage" aria-hidden="true">
-      <figure class="wcard" data-parallax="0.05"><img src="assets/wall-1.jpg" alt="" loading="lazy" /></figure>
-      <figure class="wcard" data-parallax="0.10"><img src="assets/wall-2.jpg" alt="" loading="lazy" /></figure>
-      <figure class="wcard" data-parallax="0.07"><img src="assets/wall-6.jpg" alt="" loading="lazy" /></figure>
-      <figure class="wcard" data-parallax="0.12"><img src="assets/aesthetic.jpg" alt="" loading="lazy" /></figure>
-      <figure class="wcard" data-parallax="0.06"><img src="assets/product-bg.jpg" alt="" loading="lazy" /></figure>
-      <figure class="wcard" data-parallax="0.11"><img src="assets/matcha-hand.jpg" alt="" loading="lazy" /></figure>
-      <figure class="wcard" data-parallax="0.05"><img src="assets/wall-7.jpg" alt="" loading="lazy" /></figure>
-      <figure class="wcard" data-parallax="0.09"><img src="assets/bg-1.jpg" alt="" loading="lazy" /></figure>
-      <figure class="wcard" data-parallax="0.08"><img src="assets/bg-3.jpg" alt="" loading="lazy" /></figure>
-    </div>
-  </section>
-
-  <!-- ============ VISIT ============ -->
+  <!-- ============ VISIT (quiet typeset) ============ -->
   <section class="sec visit" id="visit">
     <div class="wrap">
       <div class="visit__head">
-        <span class="eyebrow reveal" style="justify-content:center">Visit Tadaima</span>
-        <h2 class="visit__title reveal" data-rev="up" style="transition-delay:.06s">Three doors,<br/>one <span class="ital">welcome.</span></h2>
+        <span class="kicker kicker--center reveal" data-rev="up">Visit</span>
+        <h2 class="h1 visit__title reveal" data-rev="up" style="transition-delay:.08s">Three doors,<br/>one <span class="it">welcome.</span></h2>
       </div>
-      <div class="visit__grid">
-        <article class="loc reveal" data-rev="up">
-          <h3 class="loc__name">Mission</h3>
-          <p class="loc__addr">3515 20th Street<br/>San Francisco, CA 94110</p>
-          <a href="tel:+14156380092" class="loc__phone">(415) 638-0092</a>
-          <div class="loc__links">
+      <div class="visit__list">
+        <div class="visit__row reveal" data-rev="up">
+          <div class="visit__city">Mission</div>
+          <div class="visit__addr">3515 20th Street, San Francisco &nbsp;·&nbsp; <a href="tel:+14156380092">(415) 638-0092</a></div>
+          <div class="visit__links">
             <a href="https://www.google.com/maps/search/?api=1&query=Tadaima+3515+20th+St+San+Francisco" target="_blank" rel="noopener">Directions</a>
             <a href="https://tadaimasf.com/" target="_blank" rel="noopener">Order</a>
           </div>
-        </article>
-        <article class="loc reveal" data-rev="up" style="transition-delay:.1s">
-          <h3 class="loc__name">Marina</h3>
-          <p class="loc__addr">1849 Union Street<br/>San Francisco, CA 94123</p>
-          <a href="tel:+14153747339" class="loc__phone">(415) 374-7339</a>
-          <div class="loc__links">
+        </div>
+        <div class="visit__row reveal" data-rev="up" style="transition-delay:.08s">
+          <div class="visit__city">Marina</div>
+          <div class="visit__addr">1849 Union Street, San Francisco &nbsp;·&nbsp; <a href="tel:+14153747339">(415) 374-7339</a></div>
+          <div class="visit__links">
             <a href="https://www.google.com/maps/search/?api=1&query=Tadaima+1849+Union+St+San+Francisco" target="_blank" rel="noopener">Directions</a>
             <a href="https://tadaimasf.com/" target="_blank" rel="noopener">Order</a>
           </div>
-        </article>
-        <article class="loc reveal" data-rev="up" style="transition-delay:.2s">
-          <h3 class="loc__name">Inner Sunset</h3>
-          <p class="loc__addr">1248 9th Avenue<br/>San Francisco, CA 94122</p>
-          <a href="tel:+14156541973" class="loc__phone">(415) 654-1973</a>
-          <div class="loc__links">
+        </div>
+        <div class="visit__row reveal" data-rev="up" style="transition-delay:.16s">
+          <div class="visit__city">Inner Sunset</div>
+          <div class="visit__addr">1248 9th Avenue, San Francisco &nbsp;·&nbsp; <a href="tel:+14156541973">(415) 654-1973</a></div>
+          <div class="visit__links">
             <a href="https://www.google.com/maps/search/?api=1&query=Tadaima+1248+9th+Ave+San+Francisco" target="_blank" rel="noopener">Directions</a>
             <a href="https://tadaimasf.com/" target="_blank" rel="noopener">Order</a>
           </div>
-        </article>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ============ CLOSING ============ -->
   <section class="closing">
+    <div class="closing__media"><img src="assets/room-exterior.jpg" alt="The Tadaima storefront with green facade and outdoor seating" loading="lazy" /></div>
     <div class="closing__inner">
-      <span class="closing__kana reveal">ただいま</span>
-      <h2 class="closing__title reveal" data-rev="up" style="transition-delay:.06s">See you at<br/>the counter.</h2>
-      <div class="closing__cta reveal" data-rev="up" style="transition-delay:.12s">
-        <a href="https://tadaimasf.com/" target="_blank" rel="noopener" class="btn btn--cream btn--lg">Order Online</a>
-        <a href="#visit" class="btn btn--ink btn--lg">Find a Location</a>
+      <span class="closing__kana kana reveal" data-rev="up">ただいま</span>
+      <h2 class="h1 closing__title reveal" data-rev="up" style="transition-delay:.08s">Welcome <span class="it">home.</span></h2>
+      <div class="closing__cta reveal" data-rev="up" style="transition-delay:.16s">
+        <a href="https://tadaimasf.com/" target="_blank" rel="noopener" class="btn btn--cream">Order Online</a>
+        <a href="#visit" class="btn btn--line" style="color:var(--cream)">Find a Location</a>
       </div>
-      <p class="closing__tag reveal" data-rev="up" style="transition-delay:.18s">#tadaimasf</p>
     </div>
   </section>
 
   <!-- ============ FOOTER ============ -->
   <footer class="footer">
     <div class="footer__inner">
-      <span class="footer__logo">tada<span>ima</span></span>
+      <span class="footer__logo">tadaima</span>
       <nav class="footer__links" aria-label="Footer">
-        <a href="#signature">Signature</a>
+        <a href="#story">Story</a>
         <a href="#menu">Menu</a>
         <a href="#visit">Visit</a>
         <a href="https://instagram.com/tadaima.sf" target="_blank" rel="noopener">Instagram</a>
