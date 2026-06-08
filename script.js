@@ -1,43 +1,33 @@
-/* Tadaima — interaction + motion (vanilla JS, no deps) */
+/* Tadaima v2 — interaction + motion (vanilla JS) */
 (function () {
   "use strict";
   var $ = function (s, c) { return (c || document).querySelector(s); };
   var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* year */
   var y = $("#year"); if (y) y.textContent = String(new Date().getFullYear());
 
-  /* sticky nav (drops the on-dark hero treatment once scrolled) */
+  /* sticky nav */
   var nav = $("#nav");
-  function onScroll() { if (nav) nav.classList.toggle("is-scrolled", window.pageYOffset > 40); }
+  var onScroll = function () { if (nav) nav.classList.toggle("is-scrolled", window.pageYOffset > 30); };
   onScroll();
   window.addEventListener("scroll", onScroll, { passive: true });
 
-  /* mobile menu overlay */
-  var toggle = $("#navToggle"), overlay = $("#menuOverlay");
-  if (toggle && overlay) {
+  /* mobile menu */
+  var toggle = $("#navToggle"), ov = $("#menuOv");
+  if (toggle && ov) {
     var setMenu = function (open) {
       toggle.setAttribute("aria-expanded", open ? "true" : "false");
       toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
-      overlay.classList.toggle("is-open", open);
+      ov.classList.toggle("is-open", open);
       document.body.style.overflow = open ? "hidden" : "";
     };
     toggle.addEventListener("click", function () { setMenu(toggle.getAttribute("aria-expanded") !== "true"); });
-    $$("a", overlay).forEach(function (a) { a.addEventListener("click", function () { setMenu(false); }); });
+    $$("a", ov).forEach(function (a) { a.addEventListener("click", function () { setMenu(false); }); });
     document.addEventListener("keydown", function (e) { if (e.key === "Escape") setMenu(false); });
   }
 
-  /* autoplay kick for muted videos (and pause for reduced-motion) */
-  $$("video[autoplay]").forEach(function (v) {
-    if (reduce) { v.removeAttribute("autoplay"); try { v.pause(); } catch (e) {} return; }
-    v.muted = true;
-    var play = function () { var p = v.play(); if (p && p.catch) p.catch(function () {}); };
-    if (v.readyState >= 2) play(); else v.addEventListener("loadeddata", play, { once: true });
-    document.addEventListener("visibilitychange", function () { if (!document.hidden && v.paused) play(); });
-  });
-
-  /* scroll reveal */
+  /* reveal */
   var reveals = $$(".reveal");
   if (reduce || !("IntersectionObserver" in window)) {
     reveals.forEach(function (el) { el.classList.add("in"); });
@@ -48,25 +38,31 @@
     reveals.forEach(function (el) { io.observe(el); });
   }
 
-  /* parallax (cutouts + wall cards) — sets --py, combined with base transforms in CSS */
+  /* parallax: wall cards via --py; cups via inner-img transform (so CSS bob keeps working) */
   var layers = $$("[data-parallax]");
   if (!reduce && layers.length) {
     var ticking = false, vh = window.innerHeight;
+    var clear = function () {
+      layers.forEach(function (el) {
+        if (el.classList.contains("wcard")) el.style.removeProperty("--py");
+        else { var im = el.querySelector("img"); if (im) im.style.transform = ""; }
+      });
+    };
     var apply = function () {
       ticking = false;
-      if (window.innerWidth <= 620) { layers.forEach(function (el) { el.style.removeProperty("--py"); }); return; }
+      if (window.innerWidth <= 620) { clear(); return; }
       var mid = vh / 2;
       layers.forEach(function (el) {
         var r = el.getBoundingClientRect();
-        if (r.bottom < -200 || r.top > vh + 200) return;
-        var center = r.top + r.height / 2;
-        var speed = parseFloat(el.getAttribute("data-parallax")) || 0;
-        el.style.setProperty("--py", ((mid - center) * speed).toFixed(1) + "px");
+        if (r.bottom < -240 || r.top > vh + 240) return;
+        var val = (mid - (r.top + r.height / 2)) * (parseFloat(el.getAttribute("data-parallax")) || 0);
+        if (el.classList.contains("wcard")) el.style.setProperty("--py", val.toFixed(1) + "px");
+        else { var im = el.querySelector("img"); if (im) im.style.transform = "translateY(" + val.toFixed(1) + "px)"; }
       });
     };
-    var request = function () { if (!ticking) { ticking = true; window.requestAnimationFrame(apply); } };
-    window.addEventListener("scroll", request, { passive: true });
-    window.addEventListener("resize", function () { vh = window.innerHeight; request(); });
+    var req = function () { if (!ticking) { ticking = true; window.requestAnimationFrame(apply); } };
+    window.addEventListener("scroll", req, { passive: true });
+    window.addEventListener("resize", function () { vh = window.innerHeight; req(); });
     apply();
   }
 })();
